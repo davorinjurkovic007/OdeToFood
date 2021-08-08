@@ -11,5 +11,8 @@ namespace OdeToFood.Data
     {
         IEnumerable<Restaurant> GetRestaurantsByName(string name);
         Restaurant GetById(int id);
+        Restaurant Update(Restaurant updatedRestaurant);
+        Restaurant Add(Restaurant newRestarant);
+        int Commit();
     }
 }
