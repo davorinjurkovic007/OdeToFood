@@ -43,13 +43,14 @@
     <footer class="border-top footer text-muted">
 
         <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <vc:restaurant-count></vc:restaurant-count>
-                </div>
+            @*<div class="card">
+            <div class="card-body">
+                <vc:restaurant-count></vc:restaurant-count>
             </div>
+        </div>*@
+            
             @RenderSection("footer", required: false)
-            &copy; 2021 - OdeToFood - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <p>&copy; 2021 - OdeToFood - <a asp-area="" asp-page="/Privacy">Privacy</a></p>
         </div>
     </footer>
 
