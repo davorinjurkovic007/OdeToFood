@@ -37,14 +37,23 @@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
 
+    </div>
+    
     <footer class="border-top footer text-muted">
-        @RenderSection("footer", required: false)
+
         <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <vc:restaurant-count></vc:restaurant-count>
+                </div>
+            </div>
+            @RenderSection("footer", required: false)
             &copy; 2021 - OdeToFood - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
+
+    
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,6 +1,7 @@
 ﻿@page
 @model OdeToFood.Pages.Restaurants.ListModel
 @{
+    ViewData["Title"] = "Restaurants";
 }
 
 <h1>Restaurants</h1>
@@ -8,41 +9,49 @@
 <form method="get">
     <div class="form-group">
         <div class="input-group">
-            <input type="text" class="form-control" asp-for="SearchTerm"/>
+            <input type="text" class="form-control" asp-for="SearchTerm" />
             <button class="btn btn-primary">
                 <i class="glyphicon glyphicon-search"></i>
             </button>
-         </div>
+        </div>
     </div>
 </form>
 
-<table class="table">
-    @foreach(var restaurant in Model.Restaurants)
+
+@*<table class="table">
+        @foreach(var restaurant in Model.Restaurants)
+        {
+            <tr>
+                <td>@restaurant.Name</td>
+                <td>@restaurant.Location</td>
+                <td>@restaurant.Cuisine</td>
+                <td>
+                    <a class="btn btn-lg btn-primary"
+                       asp-page="./Detail"
+                       asp-route-restaurantId="@restaurant.Id">
+                        <i class="glyphicon glyphicon-zoom-in"></i>
+                    </a>
+                    <a class="btn btn-lg btn-primary"
+                       asp-page="./Edit"
+                       asp-route-restaurantId="@restaurant.Id">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn btn-lg btn-primary"
+                       asp-page="./Delete"
+                       asp-route-restaurantId="@restaurant.Id">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>*@
+<div>
+    @foreach (var restaurant in Model.Restaurants)
     {
-        <tr>
-            <td>@restaurant.Name</td>
-            <td>@restaurant.Location</td>
-            <td>@restaurant.Cuisine</td>
-            <td>
-                <a class="btn btn-lg btn-primary"
-                   asp-page="./Detail"
-                   asp-route-restaurantId="@restaurant.Id">
-                    <i class="glyphicon glyphicon-zoom-in"></i>
-                </a>
-                <a class="btn btn-lg btn-primary"
-                   asp-page="./Edit"
-                   asp-route-restaurantId="@restaurant.Id">
-                    <i class="glyphicon glyphicon-edit"></i>
-                </a>
-                <a class="btn btn-lg btn-primary"
-                   asp-page="./Delete"
-                   asp-route-restaurantId="@restaurant.Id">
-                    <i class="glyphicon glyphicon-trash"></i>
-                </a>
-            </td>
-        </tr>
+        <partial name="_Summary" model="restaurant" />
     }
-</table>
+</div>
+
 
 <a asp-page=".\Edit" class="btn btn-primary">Add New</a>
 

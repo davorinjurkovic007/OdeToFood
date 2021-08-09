@@ -20,9 +20,9 @@ namespace OdeToFood.Pages.Restaurants
             this.restaurantData = restaurantData;
         }
 
-        public IActionResult OnGet(int restauratnId)
+        public IActionResult OnGet(int restaurantId)
         {
-            Restaurant = restaurantData.GetById(restauratnId);
+            Restaurant = restaurantData.GetById(restaurantId);
             if(Restaurant == null)
             {
                 return RedirectToPage("./NotFound");
@@ -30,9 +30,9 @@ namespace OdeToFood.Pages.Restaurants
             return Page();
         }
 
-        public IActionResult OnPost(int restauratnId)
+        public IActionResult OnPost(int restaurantId)
         {
-            var restaurant = restaurantData.Delete(restauratnId);
+            var restaurant = restaurantData.Delete(restaurantId);
             restaurantData.Commit();
 
             if(restaurant == null)
